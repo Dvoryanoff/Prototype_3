@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody playerRb;
     [SerializeField] private float gravityModifier;
     [SerializeField] private bool isOnGround = true;
+    [SerializeField] public bool gameOver = false;
 
     [Range(1, 20)]
     [SerializeField] private float jumoForce = 10f;
@@ -28,7 +29,17 @@ public class PlayerController : MonoBehaviour {
         playerRb.AddForce(jumoForce * Vector3.up, ForceMode.Impulse);
     }
     private void OnCollisionEnter(Collision collision) {
-        isOnGround = true;
+
+        if (collision.gameObject.CompareTag("Ground")) {
+            isOnGround = true;
+        } else if (collision.gameObject.CompareTag("Obstacle")) {
+            GameOver();
+        }
 
     }
+    private void GameOver() {
+        Debug.Log("Game Over!");
+        gameOver = true;
+    }
+
 }
