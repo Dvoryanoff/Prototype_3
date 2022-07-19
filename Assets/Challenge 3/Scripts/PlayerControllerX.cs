@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 
 public class PlayerControllerX : MonoBehaviour {
-    public bool gameOver;
-    public bool tooHigh;
+    public bool gameOver {
+        get; private set;
+    }
+    public bool tooHigh {
+        get; private set;
+    }
 
-    private float tooHighBound = 14;
-    public float floatForce = 10;
-    public float startForce = 10;
-    private float gravityModifier = 2f;
-    public Rigidbody playerRb;
+    [SerializeField] private float tooHighBound = 14;
+    [SerializeField] private float floatForce = 10;
+    [SerializeField] private float startForce = 10;
+    [SerializeField] private float gravityModifier = 2f;
+    [SerializeField] private Rigidbody playerRb;
 
-    public ParticleSystem explosionParticle;
-    public ParticleSystem fireworksParticle;
+    [SerializeField] private ParticleSystem explosionParticle;
+    [SerializeField] private ParticleSystem fireworksParticle;
 
-    public AudioSource playerAudio;
-    public AudioClip moneySound;
-    public AudioClip explodeSound;
-    public AudioClip bounceSound;
+    [SerializeField] private AudioSource playerAudio;
+    [SerializeField] private AudioClip moneySound;
+    [SerializeField] private AudioClip explodeSound;
+    [SerializeField] private AudioClip bounceSound;
 
     // Start is called before the first frame update
     void Start() {

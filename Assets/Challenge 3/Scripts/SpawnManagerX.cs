@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 public class SpawnManagerX : MonoBehaviour {
-    public GameObject[] objectPrefabs;
+
+    [SerializeField] public GameObject[] objectPrefabs;
     private float spawnDelay = 2;
     private float spawnInterval = 1.5f;
 
